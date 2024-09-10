@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+#inpu{
+    width: 30vw;
+    margin-left: 12%;
+    text-align: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 25px;
+    
+    
+  }
+</style>
+
+
+
+<form method="GET" class="mt-5 pt-4 text-center fw-bold">
+    
+  <input id="inpu" type="text" placeholder="enter your search" name="inputsearch" >
+  
+</form>
+<div class="my-5 px-4">
+  <h2 class="fw-bold h-font text-center">OUR ROOMS</h2>
+  <div class="h-line bg-dark"></div>
+
+</div>
+
+
+
+
+
+      <div id="check" class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-12 mb-lg-0 mb-4">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+              <div class="container-fluid flex-lg-column align-items-stretch">
+                <h4>SELECTED  FILTERS</h4>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#filterDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="filterDropdown">
+                  <div class="border bg-light p-3 rounded mb-3">
+                    <h5 class="mb-3 " style="font-size: 18px;">CHECK AVAILABILITY</h5>
+                    <label for="" class="form-label" style="font-weight: 500;">Price</label>
+                    <input type="range" name="" id="" class="" width="400px">
+                    
+                
+      
+                  </div>
+
+                  <div class="border bg-light p-3 rounded mb-3">
+                    <h5 class="mb-3 " style="font-size: 18px;">Sort</h5>
+                    <input type="radio" name="" id="" class="" width="400px">
+                    <label for="" class="form-label" style="font-weight: 500;">Popular</label>
+                    <br>
+                    <input type="radio" name="" id="" class="" width="400px">
+                    <label for="" class="form-label" style="font-weight: 500;">Lowest price first</label>
+                    <br>
+                    <input type="radio" name="" id="" class="" width="400px">
+                    <label for="" class="form-label" style="font-weight: 500;">Highest rating first</label>
+                    
+                    
+                
+      
+                  </div>
+                  <div class="border bg-light p-3 rounded mb-3">
+                    <h5 class="mb-3 " style="font-size: 18px;">FACILITIES</h5>
+                    <div class="mb-2">
+                      <input type="checkbox" id="f1" class="form-check-input shadow-none mb-3">
+                      <label for="" class="form-label" style="font-weight: 500;">Air conditioning</label>
+                      <br>
+                      <input type="checkbox" id="f2" class="form-check-input shadow-none mb-3">
+                      <label for="" class="form-label" style="font-weight: 500;">Car park</label>
+                      <br>
+                      <input type="checkbox" id="f3" class="form-check-input shadow-none mb-3">
+                      <label for="" class="form-label" style="font-weight: 500;">swimming pool</label>
+      
+      
+      
+                    </div>
+      
+                  </div>
+                  <div class="border bg-light p-3 rounded mb-3">
+                    <h5 class="mb-3" style="font-size: 18px;">GUEST</h5>
+                    <div class="d-flex">
+                    <div class="m-3">
+                      <label for="" class="form-label" style="font-weight: 500;">Adult</label>
+                      <input type="number" name="" id="" class="form-control shadow-none">
+      
+                    </div>
+                    <div class="m-3" >
+                      <label for="" class="form-label" style="font-weight: 500;">Children</label>
+                      <input type="number" name="" id="" class="form-control shadow-none">
+      
+                    </div>
+                  </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </nav>
+      
+
+          </div>
+
+    
+        <div class="col-lg-9 col-md-12  px-4  ">
+          {% for hotel in hoteles %}
+          <div class="card mb-4 shadow" style="height: 420px;">
+
+            
+            <div class="row no-gutters p-3 align-items-center">
+
+              <div class="col-md-4">
+                <img src="/media/{{hotel.images}}" class="card-img" alt="..." style="height: 360px; width: 310x;" >
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title text-center" style="font-weight: 600;">{{hotel.hotel_name}}</h5>
+                  <p class="card-text">Category {{hotel.category.category_name}}</p>
+                  <h5>Facilites : </h5>
+                  <span>Unlimited Wifi ,</span>
+                  <span>Chai/Coffie , </span>
+                  <span>Swimming Pool ,</span>
+                  <span>Balcony , </span>
+                    
+                  
+                    <div class="row  mt-4 ">
+                      <p class="card-text"> Check_in - {{hotel.check_in}} </p>
+                      <br>
+                      <p class="card-text"> Check_out - {{hotel.check_out}} </p>
+                      
+                      <p class="card-text"> Adult- {{hotel.Adult}} </p>
+                    
+                      <p class="card-text"> children - {{hotel.children}} </p>
+                      <br>
+                      <p class="card-text"> Price per night - {{hotel.price}} </p>
+                    
+                
+                    </div>
+                <a href="#" class="btn btn-success">Book Now</a>
+                </div>
+              </div>
+              
+            </div>
+             
+          </div>
+          {% endfor %}
+        </div>
+        
+        
+    
+</div>
+</div>
+
+
+<!-- 
+<p class="card-text"> Check-in - {{hotel.checkin}} </p>
+              <p class="card-text"> Check-out - {{hotel.checkout}} </p>
+              <p class="card-text"> Adult - {{hotel.adult}} </p>
+              <p class="card-text"> children - {{hotel.Children}} </p> -->
+
+
+
+
+
+
+<div class="container-fluid bg-white mt-5">
+  <div class="row">
+  
+  <div class="col-lg-4">
+    <h3 class="h-font fw-bold fs-3 mb-2">AK Hotel</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam dicta impedit perferendis molestiae reprehenderit ipsam! Quisquam unde nihil numquam!</p>
+  
+  
+  </div> 
+  
+  <div class="col-lg-4 p-4">
+    <h3 class="mb-3">Links</h3>
+    <a href="" class="d-inline-block text-dark">Home</a>
+    <br>
+    <a href="" class="d-inline-block text-dark">About</a>
+    <br>
+    <a href="" class="d-inline-block text-dark">Facilities</a>
+    <br>
+    <a href="" class="d-inline-block text-dark">Room Availality</a>
+    <br>
+    <a href="" class="d-inline-block text-dark">Testimonial</a>
+  
+  </div>
+  
+  <div class="col-lg-4 p-4">
+    <h3 class="h-font fw-bold fs-3 mb-2">Follow us</h3>
+    <a href="" class="d-inline-block text-dark"><i class="fa-brands fa-twitter"></i>Twiter</a>
+    <br>
+    <a href="" class="d-inline-block text-dark"><i class="fa-brands fa-facebook"></i>Facebook</a>
+    <br>
+    <a href="" class="d-inline-block text-dark"><i class="fa-brands fa-instagram"></i>Instagram</a>
+  </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,268 @@
+<style>
+  .swiper-slide img{
+    height:70vh ;
+    width: 100vw;
+  }
+  .col-lg-1 button{
+    background-color: #2ec;
+  }
+  .col-lg-1 button :hover{
+    background-color: rgb(66, 156, 38);
+  }
+  .profile img{
+    height: 35px;
+    width: 35px;
+  }
+  
+</style>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- slider -->
+
+<div class="swiper mySwiper px-lg-3 mt-3">
+
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="static/images/ak.jpg" class="w-100 d-block" />
+    </div>
+    <div class="swiper-slide">
+      <img src="static/images/bk.jpg" class="w-100 d-block" />
+    </div>
+    <div class="swiper-slide">
+      <img src="static/images/ck.jpg" class="w-100 d-block" />
+    </div>
+    <div class="swiper-slide">
+      <img src="static/images/dk.jpg" class="w-100 d-block" />
+    </div>
+    <div class="swiper-slide">
+      <img src="static/images/fk.jpg" class="w-100 d-block" />
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+<div class="container ">
+<div class="row">
+<div class="col-lg-12 bg-green shadow p-4 rounded">
+  <h5>Check Booking Availability</h5>
+  <form method="GET">
+    <div class="row " >
+      <div class="col-lg-3">
+        <label for="" class="form-label" style="font-weight: 500;">Check-in</label>
+        <input type="date" name="sear" id="" class="form-control shadow-none">
+        
+      </div>
+      <div class="col-lg-3">
+        <label for="" class="form-label" style="font-weight: 500;">Check-out</label>
+        <input type="date" name="" id="" class="form-control shadow-none">
+        
+      </div>
+      <div class="col-lg-3">
+        <label for="" class="form-label" style="font-weight: 500;" name='adu' >Adult</label>
+        <select class="form-select shadow-none">
+          <option value="1">choose</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        
+      </div>
+      <div class="col-lg-3">
+        <label for="" class="form-label" style="font-weight: 500;" >Children</label>
+        <select class="form-select shadow-none">
+          <option value="1">choose</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>  
+      </div>
+      &nbsp;&nbsp;
+      <div class="col-lg-1">
+        <button type="submit" class="btn btn-success "> Submit</button>
+      </div> 
+    </div>
+  </form>
+
+</div>
+</div>
+</div>
+
+<h2 class="mt-5 pt-4 text-center fw-bold">OUR ROOMS</h2>
+<div class="container">
+
+<div class="row">
+{% for hotel in hoteles %}
+<div class="col-md-3 m-5 "  id="item">
+    <div class="card shadow-lg " style="width: 350px;">
+        <img src="/media/{{hotel.images}}" alt="" class="card-img-top " style="width: 349px;" style="height: 220px;">
+        <div class="card-body">
+          <h5 class="card-title text-center" style="font-weight: 400;">{{hotel.hotel_name}}</h5>
+          <p class="card-text">Category {{hotel.category.category_name}}</p>
+          <h5>Facilites : </h5>
+          <span>Unlimited Wifi ,</span>
+          <span>Chai/Coffie , </span>
+          <span>Swimming Pool ,</span>
+          <span>Balcony , </span>
+            
+            
+            <div class="row  mt-4 ">
+
+              <p class="card-text"> Price - {{hotel.price}} </p>
+            
+              <a href="#" class="btn btn-success">Book Now</a>
+        </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<div class="col-lg-12 text-center mt-5">
+  <a href="hotels" class="btn btn-sm btn-outline-dark" style="font-weight: 300;"> More Rooms >>>></a>
+</div>
+</div>
+
+<h2 class="mt-5 pt-4 text-center fw-bold">OUR FACILITYES</h2>
+<p class="mt-5 pt-4 text-center " style="font-size: 20px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ducimus necessitatibus, dolor soluta possimus reprehenderit, eligendi tempore, numquam porro hic quam atque delectus minus illo maiores dolore consectetur?</p>
+<div class="container my-15 ">
+<div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
+<div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+  <img src="static/images/star.png" alt="" style="width: 144px;" style="height: 122px;">
+  <h5 class="mt-3 ">Wifi</h5>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.  est!</p>
+
+</div>
+
+<div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+  <img src="static/images/star.png" alt="" style="width: 124px;" style="height: 122px;">
+  <h5 class="mt-3 ">Wifi</h5>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.  est!</p>
+
+</div>
+
+<div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+  <img src="static/images/star.png" alt="" style="width: 124px;" style="height: 122px;">
+  <h5 class="mt-3 ">Wifi</h5>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.  est!</p>
+
+</div>
+
+<div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+  <img src="static/images/star.png" alt="" style="width: 124px;" style="height: 122px;">
+  <h5 class="mt-3 ">Wifi</h5>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.  est!</p>
+
+</div>
+
+<div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+  <img src="static/images/star.png" alt="" style="width: 124px;" style="height: 122px;">
+  <h5 class="mt-3 ">Wifi</h5>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.  est!</p>
+
+</div>
+
+</div>
+</div>
+
+
+
+<h2 class="mt-5 pt-4 text-center fw-bold">REACH US</h2>
+<p class="mt-5 pt-4 text-center " style="font-size: 20px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ducimus necessitatibus, dolor soluta possimus reprehenderit, eligendi tempore, numquam porro hic quam atque delectus minus illo maiores dolore consectetur?</p>
+
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-8">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.910456366138!2d85.78004597171356!3d20.262548072131466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a7eb7d3606b9%3A0x667bf847e137b538!2sUdayagiri%20and%20Khandagiri%20Caves!5e0!3m2!1sen!2sin!4v1718011846438!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  
+</div>
+
+<div class="col-lg-4 col-md-6 p-2">
+  <div class="bg-white rounded shadow p-4">
+    <form action="">
+      <h1>send a message</h1>
+      <div class="mb-3">
+        <label for="" class="form-label">Name </label>
+        <input type="text" name="" id="" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Email </label>
+        <input type="email" name="" id="" class="form-control">
+        
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Subject </label>
+        <input type="text" name="" id="" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Content : </label>
+        <br>
+        <textarea name="" id=""></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success">submit</button>
+
+      
+    </form>
+
+  </div>
+    
+</div>
+</div>
+</div>
+
+<div class="container-fluid bg-white mt-5">
+<div class="row">
+
+<div class="col-lg-4">
+  <h3 class="h-font fw-bold fs-3 mb-2">AK Hotel</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam dicta impedit perferendis molestiae reprehenderit ipsam! Quisquam unde nihil numquam!</p>
+
+
+</div> 
+
+<div class="col-lg-4 p-4">
+  <h3 class="mb-3">Links</h3>
+  <a href="" class="d-inline-block text-dark">Home</a>
+  <br>
+  <a href="" class="d-inline-block text-dark">About</a>
+  <br>
+  <a href="" class="d-inline-block text-dark">Facilities</a>
+  <br>
+  <a href="" class="d-inline-block text-dark">Room Availality</a>
+  <br>
+  <a href="" class="d-inline-block text-dark">Testimonial</a>
+
+</div>
+
+<div class="col-lg-4 p-4">
+  <h3 class="h-font fw-bold fs-3 mb-2">Follow us</h3>
+  <a href="" class="d-inline-block text-dark"><i class="fa-brands fa-twitter"></i>Twiter</a>
+  <br>
+  <a href="" class="d-inline-block text-dark"><i class="fa-brands fa-facebook"></i>Facebook</a>
+  <br>
+  <a href="" class="d-inline-block text-dark"><i class="fa-brands fa-instagram"></i>Instagram</a>
+</div>
+</div>
+
+
+</div>
+
+<!-- secound part -->
+<script>
+var swiper = new Swiper(".mySwiper", {
+spaceBetween: 30,
+effect: "fade",
+loop:true,
+autoplay:{
+  delay :3500,
+  disableenOnInteraction:false,
+}
+});
+</script>
+{% endblock content %}
